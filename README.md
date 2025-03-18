@@ -52,30 +52,8 @@ For DNS resolution, refer to [opnsense-configuration](https://github.com/guyzsar
 4. Setup Network Interface or Import from previous backup
 
 
-## Jumphost VM
-
-1. Update `ansible/hosts` with jumphost vm 
-
-```
-ubuntu-server ansible_host=x.x.x.x ansible_user=devops
-```
-
-2. Run the `install-server.yaml` playbook with tags for each service to enable
-
-#### Available Service
-- [Harbor](https://goharbor.io/) - Container registry
-- [Minio](https://min.io/)  - S3 Compatible storage
-- [Vault](https://www.hashicorp.com/products/vault)  - Secret management
-- NFS server for Kubernetes Cluster
-- [Zerotier](https://www.zerotier.com/) - Remote access to Jumphost
-```
-ansible-playbook install-server.yaml --list-tags
-
-playbook: install-server.yaml
-
-  play #1 (ubuntu-server): Install Server       TAGS: []
-      TASK TAGS: [always, harbor, minio, nfs, vault, zerotier]
-```
+## Jumphost VM and Application Server ( Non - Kubernetes )
+See [ansible](https://github.com/guyzsarun-lab/ansible) repository for more details on the playbook.
 
 
 ## Kubernetes Cluster
