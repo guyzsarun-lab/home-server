@@ -27,34 +27,23 @@ Proxmox Virtual Environment (Proxmox VE) for running VMs and Kubernetes Cluster 
 ## Project Structure
 ```
 .
-├── ansible                             # ansible playbook
-├── kubernetes                          # kubernetes/ helm chart manifests
-├── packer                              # packer vm templates
-└── terraform                           # terraform iac
-    └── _talos                          # talos kubernetes cluster config
-    └── modules                         
-        └── kubernetes                  # kubernetes cluster essentials
-        └── kubernetes-addons           # kubernetes addons
-        └── talos-k8s                   # talos kubernetes vm
-        └── talos-patch                 # talos kubernetes vm patch
-        └── vm                          # jumphost / router vm
-        └── vm-templates                # vm templates
+
 ```
 
 
 ## OPNsense Router
-OPNsense router with zerotier plugin for VPC
+OPNsense router with zerotier plugin for VPC and DNS resolution
 
-**Default Credentials**
-- username: root
-- password: opnsense
-
-**Network Interface**
+### Network Interface
 | Interface | Network | Description | IP |
 |-----------|---------|-------------|----|
 | LAN       | vtnet0  |  Linux Bridge | 192.168.0.1/24 |
 | OPT       | vtnet1  |  VM Network | 172.16.0.0/16 |
 | OPT1      | zt0     | Zerotier Network | - |
+
+### DNS Configuration
+
+For DNS resolution, refer to [opnsense-configuration](https://github.com/guyzsarun-lab/opnsense-configuration) repository for Terraform template to override DNS configuration
 
 ### OPNsense Plugin Setup
 1. Update OPNsense to the latest version `System > Firmware > Updates`
