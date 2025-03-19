@@ -14,7 +14,7 @@ keycloak:
 
 fluentbit:
   namespace: kube-system
-  version: 0.39.0
+  version: 0.48.9
 
 spec:
   destination:
